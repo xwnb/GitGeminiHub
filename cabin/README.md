@@ -1,0 +1,1 @@
+This is the folder used by Action and will be ignored by git commit
