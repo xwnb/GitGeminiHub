@@ -135,7 +135,7 @@ jobs:
             let section_mark_end = -1;
             let section_mark = "---";
             for (let i = head_mark_start + 1; i < head_mark_end; i++) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_start = i;
                     break;
                 }
@@ -146,7 +146,7 @@ jobs:
             }
 
             for (let i = head_mark_end - 1; i > section_mark_start; i--) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_end = i;
                     break;
                 }
@@ -250,7 +250,7 @@ jobs:
             let section_mark_end = -1;
             let section_mark = "---";
             for (let i = head_mark_start + 1; i < head_mark_end; i++) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_start = i;
                     break;
                 }
@@ -261,7 +261,7 @@ jobs:
             }
 
             for (let i = head_mark_end - 1; i > section_mark_start; i--) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_end = i;
                     break;
                 }
@@ -353,7 +353,7 @@ jobs:
             let section_mark_end = -1;
             let section_mark = "---";
             for (let i = head_mark_start + 1; i < head_mark_end; i++) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_start = i;
                     break;
                 }
@@ -364,7 +364,7 @@ jobs:
             }
 
             for (let i = head_mark_end - 1; i > section_mark_start; i--) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_end = i;
                     break;
                 }

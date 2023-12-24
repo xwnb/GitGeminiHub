@@ -15,7 +15,7 @@ assignees: ''
 Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs.
 - [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
 
----
+-------------------------------------------------------------------------------
 	{
 	  "model_name": "gemini-pro",
 	  "generation_configuration":
@@ -33,7 +33,7 @@ Here is the generation configuration and safety setting about Gemini, you can mo
 	    "dangerous_content": "BLOCK_MEDIUM_AND_ABOVE"
 	  }
 	}
----
+-------------------------------------------------------------------------------
 -->
 
 ### Ask anything you want
@@ -53,11 +53,11 @@ Here is the generation configuration and safety setting about Gemini, you can mo
     - Please translate the text: ..balabala.. .
     - Tell a story about ...balabala... to me.
     - ...
----
+-------------------------------------------------------------------------------
 
 
 
----
+-------------------------------------------------------------------------------
 
 ### Content
 
@@ -66,8 +66,8 @@ Here is the generation configuration and safety setting about Gemini, you can mo
     - **File name and link should better be composed of numbers or English characters**
     - Support text formats: *.txt, *.md (more formats support are working in progress)
 
----
+-------------------------------------------------------------------------------
 
 
 
----
+-------------------------------------------------------------------------------

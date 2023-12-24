@@ -2,7 +2,6 @@ import google.generativeai as genai
 from pathlib import Path
 import gemini
 import log
-import recorder
 import io
 import wget
 import util
@@ -44,6 +43,7 @@ class Reader:
         with open(output_file_path, 'w+', encoding='utf-8') as fout_translated:
           translated_logger = log.FileLogger(fout_translated)
           has_error = False
+          error_count = 0
           lines = fin_original.readlines()
           for line in lines:
               if (len(line.strip()) <= 0):
@@ -74,7 +74,7 @@ class Reader:
 
   def __generate_to_file(self):
 
-    fout_path = recorder.path
+    fout_path = util.response_path
     if (self.hub.output):
        fout_path = self.hub.output
 

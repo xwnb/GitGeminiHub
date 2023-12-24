@@ -15,7 +15,7 @@ assignees: ''
 Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs.
 - [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
 
----
+-------------------------------------------------------------------------------
 	{
 	  "model_name": "gemini-pro",
 	  "generation_configuration":
@@ -33,7 +33,7 @@ Here is the generation configuration and safety setting about Gemini, you can mo
 	    "dangerous_content": "BLOCK_MEDIUM_AND_ABOVE"
 	  }
 	}
----
+-------------------------------------------------------------------------------
 -->
 
 ### Let's translate files
@@ -52,11 +52,11 @@ Here is the generation configuration and safety setting about Gemini, you can mo
 > - Please help translate the text to English/(Simplified Chinese/Traditional Chinese/Japanese/中文/英文/繁體中文/日文, and etc.)
 **(If you want to translate pure, please use ask request for easy use.)**:
 > - Please translate the text to Chinese/English more elegent/beautiful/authentic, and etc,.
----
+-------------------------------------------------------------------------------
 
 
 
----
+-------------------------------------------------------------------------------
 
 ### Content
 
@@ -69,8 +69,8 @@ Here is the generation configuration and safety setting about Gemini, you can mo
 > - [the_moon_and_sixpence_chapter_1.txt](https://raw.githubusercontent.com/xwnb/GitAutoTranslator/main/samples/the_moon_and_sixpence_chapter_1.txt)
 > - https://raw.githubusercontent.com/xwnb/GitAutoTranslator/main/samples/hello_world.txt
 
----
+-------------------------------------------------------------------------------
 
 
 
----
+-------------------------------------------------------------------------------

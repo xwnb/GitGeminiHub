@@ -65,7 +65,7 @@ jobs:
       #   if: ${{ github.event_name != 'issues' }}
       #   run: |
       #     echo "MOCK_ISSUE_BODY<<EOF" >> "$GITHUB_OUTPUT"
-      #     echo "$(cat tests/ask_task_body.md)" >> "$GITHUB_OUTPUT"
+      #     echo "$(cat tests/ask_task_body.txt)" >> "$GITHUB_OUTPUT"
       #     echo "EOF" >> "$GITHUB_OUTPUT"
       #     # echo "Mock the issue body from tests/ask_request_body.txt: `${{ steps.mock_issue_body_step.outputs.MOCK_ISSUE_BODY }}`"
       #         echo "Mock the issue body from tests/ask_request_body.txt: `${{ steps.mock_issue_body_step.outputs.MOCK_ISSUE_BODY }}`"
@@ -135,7 +135,7 @@ jobs:
             let section_mark_end = -1;
             let section_mark = "---";
             for (let i = head_mark_start + 1; i < head_mark_end; i++) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_start = i;
                     break;
                 }
@@ -146,7 +146,7 @@ jobs:
             }
 
             for (let i = head_mark_end - 1; i > section_mark_start; i--) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_end = i;
                     break;
                 }
@@ -250,7 +250,7 @@ jobs:
             let section_mark_end = -1;
             let section_mark = "---";
             for (let i = head_mark_start + 1; i < head_mark_end; i++) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_start = i;
                     break;
                 }
@@ -261,7 +261,7 @@ jobs:
             }
 
             for (let i = head_mark_end - 1; i > section_mark_start; i--) {
-                if (lines[i].trim() == section_mark) {
+                if (lines[i].trim().startsWith(section_mark)) {
                     section_mark_end = i;
                     break;
                 }
@@ -309,8 +309,6 @@ jobs:
             core.setOutput("PROMPT", text_body);
 
             console.log("The prompt: " + text_body);
-
-
       - name: Extract content info
         id: extract_content_info_step
         if: ${{ github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'text') }}
@@ -320,55 +318,100 @@ jobs:
 
             let issue_body_txt = `${{ steps.retrieve_issue_body_step.outputs.ISSUE_BODY }}`;
 
-            let seperate_line_mark = "---";
-            let section_line_mark = "###";
-            let has_content = false;
-            let error_no_content = "Please fill the content.";
+            // console.log(issue_body_txt);
+            let extract_error = "Please fill the content.";
 
             let lines = issue_body_txt.split('\n');
-            let content = "";
 
+            let head_mark = "### Content";
+            let head_start_mark = "###";
+            let head_mark_start = -1;
+            let head_mark_end = lines.length;
             for (let i = 0; i < lines.length; i++) {
-                let line = lines[i].trim();
-                if (line == "### Content") {
-                    // get the content
-                    let found_seperator = false;
-                    for (i = i + 1; i < lines.length; i++) {
-                        line = lines[i].trim();
-                        if (!found_seperator && line == seperate_line_mark) {
-                            found_seperator = true;
-                            continue;
-                        } else if (!found_seperator) {
-                            continue;
-                        } else if (found_seperator && line == section_line_mark) {
-                            break;
-                        }
-
-                        if (line.length == 0) {
-                            continue;
-                        }
-
-                        let regex = /(https?|http|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
-                        let links = line.match(regex);
-                        if (links && links[0]) {
-                            has_file_link = true;
-                            content = links[0];
-                        }
-
-                        has_content = true;
-
-                        break;
-                    }
+                if (lines[i].trim() == head_mark) {
+                    head_mark_start = i;
+                    break;
                 }
             }
 
-            core.setOutput("CONTENT", content);
-
-            if (has_content) {
-                console.log("The content: " + content);
-            } else {
-                throw new Error(error_no_content);
+            if (head_mark_start < 0) {
+                throw new Error(extract_error + ":1");
             }
+
+            for (let i = head_mark_start + 1; i < lines.length; i++) {
+                if (lines[i].trim().startsWith(head_start_mark)) {
+                    head_mark_end = i;
+                    break;
+                }
+            }
+
+            if (head_mark_end < 0) {
+                throw new Error(extract_error + ":2");
+            }
+
+            let section_mark_start = -1;
+            let section_mark_end = -1;
+            let section_mark = "---";
+            for (let i = head_mark_start + 1; i < head_mark_end; i++) {
+                if (lines[i].trim().startsWith(section_mark)) {
+                    section_mark_start = i;
+                    break;
+                }
+            }
+
+            if (section_mark_start < 0) {
+                throw new Error(extract_error + ":3");
+            }
+
+            for (let i = head_mark_end - 1; i > section_mark_start; i--) {
+                if (lines[i].trim().startsWith(section_mark)) {
+                    section_mark_end = i;
+                    break;
+                }
+            }
+
+            if (section_mark_end <= section_mark_start) {
+                throw new Error(extract_error + ":4");
+            }
+
+            let code_mark_start = section_mark_start;
+            let code_mark_end = section_mark_end;
+            /*
+            let code_mark_start = -1;
+            let code_mark_end = -1;
+            let code_mark_head = "```json setting";
+            let code_mark_tail = "```";
+            for (let i = section_mark_start + 1; i < section_mark_end; i++) {
+                if (lines[i].trim() == code_mark_head) {
+                    code_mark_start = i;
+                    break;
+                }
+            }
+
+            if (code_mark_start < 0) {
+                throw new Error(extract_error);
+            }
+
+            for (let i = section_mark_end - 1; i > code_mark_start; i--) {
+                if (lines[i].trim() == code_mark_tail) {
+                    code_mark_end = i;
+                    break;
+                }
+            }
+            */
+
+            if (code_mark_end <= code_mark_start) {
+                throw new Error(extract_error + ":5");
+            }
+
+            let text_body = "";
+            for (let i = code_mark_start + 1; i < code_mark_end; i++) {
+                text_body += lines[i].trim() + "\n";
+            }
+
+            core.setOutput("CONTENT", text_body);
+
+            console.log("The content: " + text_body);
 
 
   execute_ask_job:
@@ -405,6 +448,7 @@ jobs:
         run: |
           echo "Setup current workspace under: $(pwd)"
           pip install google-generativeai==0.3.1
+          pip install wget
 
 
       # - name: Execute request

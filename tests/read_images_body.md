@@ -15,7 +15,7 @@ assignees: ''
 Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs.
 - [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
 
----
+-------------------------------------------------------------------------------
 	{
 	  "model_name": "gemini-pro",
 	  "generation_configuration":
@@ -33,7 +33,7 @@ Here is the generation configuration and safety setting about Gemini, you can mo
 	    "dangerous_content": "BLOCK_MEDIUM_AND_ABOVE"
 	  }
 	}
----
+-------------------------------------------------------------------------------
 -->
 
 ### Let's read images
@@ -51,19 +51,19 @@ Here is the generation configuration and safety setting about Gemini, you can mo
     - What's in the picture?
     - Write a short, engaging blog post based on this picture. It should include a description of the meal in the photo and talk about my journey meal prepping.
     - ...
----
+-------------------------------------------------------------------------------
 
 What's in the picture?
 
----
+-------------------------------------------------------------------------------
 
 ### Content
 
     - Attach an image or multiples images list
     - Paste, drop or click to add images between line marks "---"
 
----
+-------------------------------------------------------------------------------
 
 [scones.jpg](https://storage.googleapis.com/generativeai-downloads/images/scones.jpg)
 
----
+-------------------------------------------------------------------------------

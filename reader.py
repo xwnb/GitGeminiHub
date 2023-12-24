@@ -1,6 +1,5 @@
 import gemini
 import log
-import recorder
 import io
 import PIL.Image
 import requests
@@ -35,7 +34,7 @@ class Reader:
 
   def __generate_to_file(self):
 
-    fout_path = recorder.path
+    fout_path = util.response_path
     if (self.hub.output):
        fout_path = self.hub.output
 
