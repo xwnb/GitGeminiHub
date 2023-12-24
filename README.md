@@ -256,7 +256,7 @@ the Gemini
 [pull-requests-shield]: https://img.shields.io/github/issues-pr/xwnb/GitGeminiHub?color=ff8c31
 [pull-requests-url]: https://github.com/xwnb/GitGeminiHub/pulls
 [license-shield]: https://img.shields.io/github/license/xwnb/GitGeminiHub?color=827100
-[license-url]: https://github.com/xwnb/GitGeminiHub/blob/master/LICENSE.txt
+[license-url]: https://github.com/xwnb/GitGeminiHub/blob/main/LICENSE
 [product-screenshot]: images/screenshot.png
 [if-useful-shield]: https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99
 [if-useful-url]: https://github.com/xwnb/GitGeminiHub
