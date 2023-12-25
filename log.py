@@ -1,43 +1,6 @@
 import io
 
-# ScreenLogger
-class ScreenLogger:
-
-    @staticmethod
-    def log_msg(msg: str):
-        ret = "\n**********************************************************\n"
-        ret += str(msg)
-        ret += "\n**********************************************************\n"
-        print(ret)
-        return ret
-
-    @staticmethod
-    def __log(msg: str, level: str="DEBUG"):
-        ret = "\n**********************************************************\n"
-        ret += "**" + level + " occurs:**\n" + str(msg)
-        ret += "\n**********************************************************\n"
-        print(ret)
-        return ret
-
-    @staticmethod
-    def log_error(msg: str):
-        return ScreenLogger.__log(msg, "ERROR")
-
-    @staticmethod
-    def log_warning(msg: str):
-        return ScreenLogger.__log(msg, "WARNING")
-
-    @staticmethod
-    def log_debug(msg: str):
-        return ScreenLogger.__log(msg, "DEBUG")
-
-    @staticmethod
-    def log_info(msg: str):
-        return ScreenLogger.__log(msg, "INFO")
-
-
-# FILE LOG
-class FileLogger:
+class Logger:
 
     def __init__(self, fout: io.FileIO = None) -> None:
         self.file: io.FileIO = fout
@@ -50,7 +13,7 @@ class FileLogger:
 
         return msg
 
-    def log_msg(self, msg: str, file: io.FileIO):
+    def log_msg(self, msg: str):
         ret = "\n**********************************************************\n"
         ret += str(msg)
         ret += "\n**********************************************************\n"

@@ -88,10 +88,6 @@ jobs:
 
                 if (labels.includes('ask')) {
                   core.setOutput("TASK", 'ask');
-                } else if (labels.includes('read')) {
-                  core.setOutput("TASK", 'read');
-                } else if (labels.includes('translate')) {
-                  core.setOutput("TASK", 'translate');
                 } else {
                   throw new Error("Incorrect task");
                 }
@@ -99,7 +95,7 @@ jobs:
                 console.log("Retrieven issue body from MOCK");
                 // https://github.com/juliangruber/read-file-action/blob/master/index.js
                 let { promises: fs } = require('fs');
-                body = await fs.readFile('tests/general_task_body.md', 'utf8');
+                body = await fs.readFile('tests/ask_task_body.md', 'utf8');
                 core.setOutput("TASK", 'general');
             }
             console.log(`the issue body\n ${body}`);
@@ -216,7 +212,6 @@ jobs:
             core.setOutput("HATE_SPEECH", setting.safety_setting.hate_speech);
             core.setOutput("SEXUALLY_EXPLICIT", setting.safety_setting.sexually_explicit);
             core.setOutput("DANGEROUS_CONTENT", setting.safety_setting.dangerous_content);
-
 
             console.log(`The setting:\n + ${ text_body }`)
 
@@ -436,7 +431,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      RESPONSE_FILE: "cabin/response.txt"
+      RESPONSE_FILE: "cabin/response.md"
 
       TASK: ${{ needs.extract_info_job.outputs.TASK }}
       LABELS: ${{ needs.extract_info_job.outputs.LABELS }}
@@ -479,18 +474,18 @@ jobs:
       - name: Execute request
         id: execute_request_step
         run: |
-          python3 "$TASK.py" $MODEL_NAME ${{ secrets.GOOGLE_GEMINI_API_KEY }} "$PROMPT" -c "$CONTENT" -o $RESPONSE_FILE -t $TEMPERATURE -p $TOP_P -k $TOP_K -m $MAX_OUTPUT_TOKENS -hs $HARASSMENT -ht $HATE_SPEECH -sx $SEXUALLY_EXPLICIT -dg $DANGEROUS_CONTENT
+          python3 "ask.py" $MODEL_NAME ${{ secrets.GOOGLE_GEMINI_API_KEY }} "$TASK" "$PROMPT" -c "$CONTENT" -o $RESPONSE_FILE -t $TEMPERATURE -p $TOP_P -k $TOP_K -m $MAX_OUTPUT_TOKENS -hs $HARASSMENT -ht $HATE_SPEECH -sx $SEXUALLY_EXPLICIT -dg $DANGEROUS_CONTENT
 
 
-      - name: Upload artifact
-        if: ${{ env.TASK == 'translate' }}
-        uses: actions/upload-artifact@v4
-        id: upload_artifact_step
-        with:
-          name: artifact-issue-${{ github.event.issue.number }}
-          path: cabin/Translated - *.*
-          if-no-files-found: error
-          retention-days: 7
+      # - name: Upload artifact
+      #   if: ${{ env.TASK == 'translate' }}
+      #   uses: actions/upload-artifact@v4
+      #   id: upload_artifact_step
+      #   with:
+      #     name: artifact-issue-${{ github.event.issue.number }}
+      #     path: cabin/Translated - *.*
+      #     if-no-files-found: error
+      #     retention-days: 7
 
 
       - name: Post response to comment if succeed
@@ -501,15 +496,6 @@ jobs:
             const issueNumber = context.issue.number;
 
             const {TASK, PROMPT, CONTENT, RESPONSE_FILE} = process.env
-
-            let { promises: fs } = require('fs');
-
-            let response_text
-            if (`${ TASK }` == 'translate') {
-              response_text = `The artifact download URL: ` + `[**artifact-issue-${{ github.event.issue.number }}**](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.upload_artifact_step.outputs.artifact-id }})` + "\n"
-            } else {
-              response_text = await fs.readFile(`${ RESPONSE_FILE }`, 'utf8');
-            }
 
             let prompt_raw = `${ PROMPT }`;
             let prompt_quota = "";
@@ -536,6 +522,9 @@ jobs:
                 + "    Content:\n"
                 + `${ content_quota }\n`
             }
+
+            let { promises: fs } = require('fs');
+            let response_text = await fs.readFile(`${ RESPONSE_FILE }`, 'utf8');
 
             completedComment = completedComment
               + "\n"
@@ -596,7 +585,7 @@ jobs:
               labels: ['task failed']
             });
 
-            const {PROMPT, CONTENT} = process.env
+            const {TASK, PROMPT, CONTENT, RESPONSE_FILE} = process.env
 
             let prompt_raw = `${ PROMPT }`;
             let prompt_quota = "";
@@ -616,17 +605,20 @@ jobs:
 
             let completedComment
               = "    Prompt:\n"
-              + `    ${ prompt_quota }\n`;
+              + `${ prompt_quota }\n`;
 
             if (content_quota.trim().length != 0) {
               completedComment = completedComment
                 + "    Content:\n"
-                + `    ${ content_quota }\n`
+                + `${ content_quota }\n`
             }
+
+            let { promises: fs } = require('fs');
+            let response_text = await fs.readFile(`${ RESPONSE_FILE }`, 'utf8');
 
             completedComment = completedComment
               + "\n"
-              + "#### 🎉 Task executed successfully. Here is the response:\n"
+              + "#### 🎉 Task executed failed. Here is the response:\n"
               + `${ response_text }\n\n`
               + "#### 😢 Sorry for the failure. Please check the task info, and ***EDIT***, ***Reopen***, ***New*** for retry.\n";
 
@@ -636,15 +628,6 @@ jobs:
               issue_number: issueNumber,
               body: completedComment
             });
-
-            // keep it opened if failed, let user modify and re-submit
-            // await github.rest.issues.update({
-            //   owner: context.repo.owner,
-            //   repo: context.repo.repo,
-            //   issue_number: issueNumber,
-            //   state: "closed"
-            // });
-
 
       - name: Close Issue
         if: ${{ success() }}

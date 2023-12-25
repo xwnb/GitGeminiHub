@@ -1,8 +1,8 @@
 ---
-name: Task - Read images
-about: Create a read images request task
+name: Task - Ask with images
+about: Create a ask images request task
 title: ''
-labels: ['read', 'image', 'task']
+labels: ['ask', 'image', 'task']
 assignees: ''
 
 ---
@@ -10,19 +10,6 @@ assignees: ''
 <!-- Do not remove any text of this Description template, just fill items -->
 
 ### Let's read images
-
-- It is a read images task which can read images and response according to the prompt and images ...
-- The response will be posted to the comment under this issue ticket.
-- See more about [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
-- ***Fill the prompt /content between the line marks "---" below each "###" sections***
-- Prompt:
- 	- Examples:
-		- What's in the picture?
-		- Write a short, engaging blog post based on this picture. It should include a description of the meal in the photo and talk about my journey meal prepping.
-		- ...
-- Content:
-    - Attach an image or multiples images list
-    - Paste, drop or click to add images between line marks "---"
 
 ### Prompt
 
@@ -39,6 +26,21 @@ assignees: ''
 
 
 -------------------------------------------------------------------------------
+
+### Intruction
+
+- It is a read images task which can read images and response according to the prompt and images ...
+- The response will be posted to the comment under this issue ticket.
+- See more about [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
+- ***Fill the prompt /content between the line marks "---" below each "###" sections***
+- Prompt:
+  - Examples:
+    - What's in the picture?
+    - Write a short, engaging blog post based on this picture. It should include a description of the meal in the photo and talk about my journey meal prepping.
+    - ...
+- Content:
+  - Attach an image or multiples images list
+  - Paste, drop or click to add images between line marks "---"
 
 <!--
 ### Setting

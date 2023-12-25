@@ -27,6 +27,7 @@ class SafetySettings:
 class GitGeminiHub:
     def __init__(self, model_name: str = 'gemini-pro') -> None:
         self.model_name : str = model_name
+        self.task : str = "ask"
         self.prompt : str = ""
         self.content : str = ""
         self.date = None
@@ -43,6 +44,7 @@ class GitGeminiHub:
         parser = argparse.ArgumentParser(prog='GitGeminiHub')
         parser.add_argument('model_name', default='gemini-pro', help="Specificy model name, which could be gemini-pro or gemini-pro-version")
         parser.add_argument('api_key', help="The api key of Gemini")
+        parser.add_argument('task', help="The task type of request")
         parser.add_argument('prompt', help="The prompt")
         parser.add_argument('-c', '--content', default='', type=str, help="The additional content (text, file, image, and etc) for the prompt")
         parser.add_argument('-o', '--output', default='', type=str, help="The output file path for response text if set")
@@ -104,6 +106,7 @@ class GitGeminiHub:
         self.model_name = args.model_name
 
         self.api_key = args.api_key
+        self.task = args.task
         self.prompt = args.prompt
         self.content = args.content
         self.output = args.output
@@ -125,44 +128,21 @@ class GitGeminiHub:
         self.model = self.__create_model(self.model_name, self.api_key, self.generation_config, self.safety_settings)
 
 
-    def __generate_to_screen(self, input: str) -> None:
-        logger = log.ScreenLogger()
-        if len(input) <= 0:
-            ret = logger.log_error("The input should not be empty. Please input something")
-            raise Exception(ret)
-
-        response = self.model.generate_content(input)
-        try:
-            logger.log_msg(response.text)
-        except Exception as ex:
-            ret = logger.log_error(ex)
-            ret += logger.log_error(response.prompt_feedback)
-            raise Exception(ex)
-
-        return response
-
-    def __generate_to_file(self, input: str, fout: io.FileIO) -> None:
-        logger = log.FileLogger(fout)
+    def generate(self, input, fout: io.FileIO = None) -> None:
+        logger = log.Logger(fout)
         if len(input) <= 0:
             ret = logger.log_error("The input text to GitGeminHub should not be empty. Please input something")
             raise Exception(ret)
 
         response = self.model.generate_content(input)
         try:
-            logger.log_msg(response.text, fout)
+            logger.log_msg(response.text)
         except Exception as ex:
-            ret = logger.log_error(ex, fout)
-            ret += logger.log_error(response.prompt_feedback, fout)
+            text = str(ex) + "\n" + response.prompt_feedback
+            ret = logger.log_error(text)
             raise Exception(ex)
 
         return response
-
-
-    def generate(self, input: str, fout: io.FileIO = None) -> None:
-        if not fout:
-            return self.__generate_to_screen(input)
-        else:
-            return self.__generate_to_file(input, fout)
 
 
     def generate_raw(self, input: str, fout: io.FileIO = None) -> None:
