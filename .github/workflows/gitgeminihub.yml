@@ -93,37 +93,6 @@ jobs:
             console.log(`the issue body\n ${body}`);
             core.setOutput("ISSUE_BODY", body);
 
-            {
-                # console.log("Retrieven issue body from MOCK")
-                # // https://github.com/juliangruber/read-file-action/blob/master/index.js
-
-                # let { promises: fs } = require('fs');
-                # body = await fs.readFile('tests/general_task_body.md', 'utf8');
-                # core.setOutput("TASK", 'general');
-
-                # console.log(`${{ github.event.issue.labels }}`)
-                # let labels = github.event.issue.labels.map(item => item.name);
-                # let str_labels = labels.join(', ');
-                # console.log(`The labels of the task: ${ str_labels }`)
-
-                # if (labels.includes('ask')) {
-                #   body = await fs.readFile('tests/ask_task_body.md', 'utf8');
-                #   core.setOutput("TASK", 'ask');
-                # } else if (labels.includes('read')) {
-                #   body = await fs.readFile('tests/read_images_body.md', 'utf8');
-                #   core.setOutput("TASK", 'read');
-                # } else if (labels.includes('translate')) {
-                #   body = await fs.readFile('tests/translate_task_body.md', 'utf8');
-                #   core.setOutput("TASK", 'translate');
-                # } else {
-                #   body = await fs.readFile('tests/general_task_body.md', 'utf8');
-                #   core.setOutput("TASK", 'general');
-                # }
-            }
-
-            console.log(`the issue body\n ${body}`);
-            core.setOutput("ISSUE_BODY", body);
-
       - name: Extract setting info
         id: extract_setting_info_step
         # if: ${{ github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'task') }}
