@@ -2,7 +2,7 @@
 name: Task - Translate file
 about: Create a translate request task
 title: ''
-labels: ['translate', 'task']
+labels: ['translate', 'task', 'text']
 assignees: ''
 
 ---

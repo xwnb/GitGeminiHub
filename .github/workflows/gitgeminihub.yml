@@ -428,7 +428,7 @@ jobs:
             console.log("The content: " + text_body);
 
 
-  execute_ask_job:
+  execute_request_job:
     needs: [extract_info_job]
     if: ${{ github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'task') }}
 
@@ -439,7 +439,7 @@ jobs:
       RESPONSE_FILE: "cabin/response.txt"
 
       TASK: ${{ needs.extract_info_job.outputs.TASK }}
-      LABELS: $${{ needs.extract_info_job.outputs.LABELS }}
+      LABELS: ${{ needs.extract_info_job.outputs.LABELS }}
       PROMPT: ${{ needs.extract_info_job.outputs.PROMPT }}
       CONTENT: ${{ needs.extract_info_job.outputs.CONTENT }}
 
