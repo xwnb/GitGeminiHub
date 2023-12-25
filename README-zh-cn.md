@@ -9,6 +9,7 @@
 -->
 
 
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -25,11 +26,11 @@
     <a href="https://github.com/xwnb/GitGeminiHub/blob/main/README-zh-cn.md"><strong>中文 »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/xwnb/GitGeminiHub">View Demo</a>
+    <a href="https://github.com/xwnb/GitGeminiHub">预览示例</a>
     ·
-    <a href="https://github.com/xwnb/GitGeminiHub/issues">Report Bug</a>
+    <a href="https://github.com/xwnb/GitGeminiHub/issues">报告问题</a>
     ·
-    <a href="https://github.com/xwnb/GitGeminiHub/issues">Request Feature</a>
+    <a href="https://github.com/xwnb/GitGeminiHub/issues">征求功能</a>
   </p>
 </div>
 
@@ -60,48 +61,55 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>目录</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">关于项目</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">构建</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started">开始</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#prerequisites">准备</a></li>
 <!--         <li><a href="#installation">Installation</a></li> -->
-        <li><a href="#steps">Steps</a></li>
-        <li><a href="#examples">Examples</a></li>
+        <li><a href="#steps">步骤</a></li>
+        <li><a href="#examples">示例</a></li>
       </ul>
     </li>
 <!--     <li><a href="#usage">Usage</a></li> -->
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#roadmap">路线图</a></li>
+    <li><a href="#contributing">贡献</a></li>
+    <li><a href="#license">证书</a></li>
+    <li><a href="#contact">联系</a></li>
+    <li><a href="#acknowledgments">致谢</a></li>
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## 关于项目
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-This is GitGeminiHub built by [GitHub Action](https://github.com/features/actions) and [Google Gemini](https://deepmind.google/technologies/gemini/#introduction) API to response automatically by submitting Issues.
+这是由 [GitHub Action](https://github.com/features/actions) 和 [Google Gemini](https://deepmind.google/technologies/gemini/#introduction) API 构建的 GitGeminiHub，可以自动回复所提交的问题请求。
 
-***It is a learning, open-source project. If any complains, please contact me.***
+***这是一个用于学习的开源项目，如果有任何的担忧，请联系我。***
+
+PS1: 鉴于国内无法访问 Google，OpenAI 等众多的 AI 站点；想用 AI 的内心是躁动的；付费会员我是抠门和无法访问的；科学爬梯子我是没有胆子的；给梯子贩子交钱又怕奸商跑路的；白嫖是永远刻在谷子里的。然后发现该全球最大的同性交友网站可以免费使用（白嫖）Action 来进行自动化构建发布。然后就想着，对哦，它们可以直连 xxxx 站点，然后就搞了这么一个仓库。通过 GitHub Action 来访问 Gemini API，从而不用科学上网就能满足一些 AI 的任务需求。
+
+PS2: GitHub 由于各地访问情况不一样，但普遍访问较慢或者不稳定，图片或者链接无法完整打开。移动端可以通过 GitHub Mobile，访问非常流畅；电脑端可以下载 [FastGithub](https://github.com/WangGithubUser/FastGithub/releases)。
+
+PS3: 该仓库不具备任何科学上网技巧，请在遵守当地法律法规下使用体验。
+
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
-### Built With
+### 构建
 
 * [**GitHub Action**](https://github.com/features/actions): Automate your workflow
 from idea to production
@@ -113,25 +121,29 @@ the Gemini era
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## 开始
 
-Follow the steps learn how to submit a task by [open issue](https://github.com/xwnb/GitGeminiHub/issues)
+按照下述步骤来学习通过[报告问题](https://github.com/xwnb/GitGeminiHub/issues)提交一个任务请求
 
-### Prerequisites
+### 准备
 
-For developers or contributors who folk as a personal project:
+对于普通用户:
 
-1. [Fork repository](https://github.com/xwnb/GitGeminiHub/fork) as your owners
-2. [Get a Gemini API key](https://makersuite.google.com/app/apikey)
-3. **Add the Gemini API key in project setting**
+1. **你需要一个 GitHub 账号并且知道简单的使用，比如如何提交问题.**
+2. 在 [创建问题](https://github.com/xwnb/GitGeminiHub/issues) 页面选择 [提交问题](https://github.com/xwnb/GitGeminiHub/issues/new/choose)
+3. 选择合适的模板。目前支持的模板详见：<a href="#### **支持的模板**">**支持的模板**</a>
+4. 填写模板内容
+5. 提交问题
+
+
+对于开发者:
+
+1. [备份项目](https://github.com/xwnb/GitGeminiHub/fork) 作为自己的仓库
+2. [获取 Gemini API 密钥](https://makersuite.google.com/app/apikey)
+3. **将 API 保存到项目设置中**
 4. **Settting** -> **Security**/**Secrets and variables**/**Actions** -> **Secrets**/**Repository secrets**
 
-For users:
 
-1. **You need a GitHub account and should better know how to use GitHub, like create an issue.**
-2. [Open Issue](https://github.com/xwnb/GitGeminiHub/issues) to create a [New issue](https://github.com/xwnb/GitGeminiHub/issues/new/choose) ticket
-3. Choose an issue template to submit a request
-4. Submit the issue ticket
 
 <!--
 ### Installation
@@ -155,28 +167,27 @@ For users:
 
 
 <!-- USAGE EXAMPLES -->
-### Steps
+### 步骤
 
-1. [Open Issue](https://github.com/xwnb/GitGeminiHub/issues) to create a [New issue](https://github.com/xwnb/GitGeminiHub/issues/new/choose) ticket
-2. Choose any **task request** to start submitting a task issue
-3. Fill the prompt you want task to execute in **### Prompt** section
-4. Fill the content (upload/drop files or images or their links if needed) in **### Content** section
-5. Submit the new issue
-6. Wait the task finished.
-7. Check the new comment added by action bot
+1. 进入到 [创建问题](https://github.com/xwnb/GitGeminiHub/issues) 准备 [提交新问题](https://github.com/xwnb/GitGeminiHub/issues/new/choose) ticket
+2. 选择任意一个 **任务请求** 来提交一个新任务
+3. 在 **### Prompt** 填写你期望的提示语
+4. 在 **### Content** 填入附加的文本/图片/链接，如果有且需要的话
+5. 提交该问题
+6. 等待任务结束
+7. 机器人将会把结果通过评论的方式回复到该问题页之下。 ***如果任务失败，请检查问题描述，编辑或重新提交或重新创建可以自动重新触发任务请求。***
 
-**The result will be post at the issue page by bot comment. If task failed, please check the issue description, edit or reopen or re-create can re-trigger the translation task automatically.**
+#### **支持的模板**
 
-#### **Supported task templates**
+- [**Task - Read images**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=read%2Cimage%2Ctask&projects=&template=task_read_images.md&title=): 这可以根据你的描述读取分析图片，比如文字提取，识图读图，看图写作等
+- [**Task - Ask**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=): 你可以通过此来提交任何问题，像提问搜索引擎一样从 Gemini 处获取答案，比如提问，写作，做题，撰写材料等
+- [**Task - Translate file**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=translate%2Ctask%2Ctext&projects=&template=task_translate_file.md&title=): 这可以翻译你所提交文本文档
+- 更多的任务模板正在支持中…… 如果你有其他需求，请通过 **Feature request** 来 [提交新需求](https://github.com/xwnb/GitGeminiHub/issues/new/choose)
 
-- [**Task - Read images**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=read%2Cimage%2Ctask&projects=&template=task_read_images.md&title=): it can read images and do something as your description - image apprehension, text extraction and others.
-- [**Task - Ask**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=): ask Gemini for anything you want, like google or bing anything - writing, ask question, translate or solve math problems.
-- [**Task - Translate file**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=translate%2Ctask%2Ctext&projects=&template=task_translate_file.md&title=): It can translate a file if you attach, and post the translated one to you.
-- More task templatesa are in support ... If you have more expected features, please choose **Feature requst** ticket to ask for new features.
 
-### Examples
+### 示例
 
-Here are some examples you may be interested in. If you have awesome tasks/examples by this project, please submit a [pull request](https://github.com/xwnb/GitGeminiHub/pulls) or @xwnb. I'll list them below.
+这里是一些你可能感兴趣的示例，如果你有更精彩的任务或者例子，请提交 [pull request](https://github.com/xwnb/GitGeminiHub/pulls) 或者艾特我 @xwnb。我将把它们添加到下面列表中。
 
 1. [Example: Add contextual information ](https://github.com/xwnb/GitGeminiHub/issues/3)
 2. [Example: Summarize this text](https://github.com/xwnb/GitGeminiHub/issues/4)
@@ -197,7 +208,7 @@ Here are some examples you may be interested in. If you have awesome tasks/examp
 
 
 <!-- ROADMAP -->
-## Roadmap
+## 路线路
 
 - [x] Build with GitHub Action and Gemini API triggered by Issue event
 - [x] Support *.txt, *.md files for translation
@@ -210,14 +221,14 @@ Here are some examples you may be interested in. If you have awesome tasks/examp
 - [ ] Notify task result to users by email
 - [ ] ...
 
-See the [open issues]() for a full list of proposed features (and known issues).
+如果遇到问题或者想要额外的支持，请到 [open issues](https://github.com/xwnb/GitGeminiHub/issues) 查询或提交
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+## 贡献
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -235,7 +246,7 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- LICENSE -->
-## License
+## 证书
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
@@ -244,7 +255,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- CONTACT -->
-## Contact
+## 联系
 
 <!-- Your Name - [@twitter_handle](xxx) - email@xxx.com -->
 
@@ -254,7 +265,7 @@ Project Link: [https://github.com/xwnb/GitGeminiHub](https://github.com/xwnb/Git
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+## 致谢
 
 * [GitHub Action: Automate your workflow
 from idea to production](https://github.com/features/actions)
