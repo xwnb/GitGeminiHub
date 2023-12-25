@@ -88,25 +88,28 @@ jobs:
                 console.log("Retrieven issue body from MOCK")
                 // https://github.com/juliangruber/read-file-action/blob/master/index.js
 
-                console.log(`${{ github.event.issue.labels }}`)
+                body = await fs.readFile('tests/general_task_body.md', 'utf8');
+                core.setOutput("TASK", 'general');
+
+                # console.log(`${{ github.event.issue.labels }}`)
                 # let labels = github.event.issue.labels.map(item => item.name);
                 # let str_labels = labels.join(', ');
-                console.log(`The labels of the task: ${ str_labels }`)
+                # console.log(`The labels of the task: ${ str_labels }`)
 
-                let { promises: fs } = require('fs');
-                if (labels.includes('ask')) {
-                  body = await fs.readFile('tests/ask_task_body.md', 'utf8');
-                  core.setOutput("TASK", 'ask');
-                } else if (labels.includes('read')) {
-                  body = await fs.readFile('tests/read_images_body.md', 'utf8');
-                  core.setOutput("TASK", 'read');
-                } else if (labels.includes('translate')) {
-                  body = await fs.readFile('tests/translate_task_body.md', 'utf8');
-                  core.setOutput("TASK", 'translate');
-                } else {
-                  body = await fs.readFile('tests/general_task_body.md', 'utf8');
-                  core.setOutput("TASK", 'general');
-                }
+                # let { promises: fs } = require('fs');
+                # if (labels.includes('ask')) {
+                #   body = await fs.readFile('tests/ask_task_body.md', 'utf8');
+                #   core.setOutput("TASK", 'ask');
+                # } else if (labels.includes('read')) {
+                #   body = await fs.readFile('tests/read_images_body.md', 'utf8');
+                #   core.setOutput("TASK", 'read');
+                # } else if (labels.includes('translate')) {
+                #   body = await fs.readFile('tests/translate_task_body.md', 'utf8');
+                #   core.setOutput("TASK", 'translate');
+                # } else {
+                #   body = await fs.readFile('tests/general_task_body.md', 'utf8');
+                #   core.setOutput("TASK", 'general');
+                # }
             }
 
             console.log(`the issue body\n ${body}`);
