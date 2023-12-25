@@ -80,17 +80,26 @@ jobs:
           script: |
 
             let body;
-
             if (${{ github.event_name == 'issues' }}) {
-                console.log("Retrieven issue body from UERS")
+                console.log("Retrieven issue body from UERS");
                 body = `${{ github.event.issue.body }}`;
             } else {
-                console.log("Retrieven issue body from MOCK")
+                console.log("Retrieven issue body from MOCK");
                 // https://github.com/juliangruber/read-file-action/blob/master/index.js
-
                 let { promises: fs } = require('fs');
                 body = await fs.readFile('tests/general_task_body.md', 'utf8');
                 core.setOutput("TASK", 'general');
+            }
+            console.log(`the issue body\n ${body}`);
+            core.setOutput("ISSUE_BODY", body);
+
+            {
+                # console.log("Retrieven issue body from MOCK")
+                # // https://github.com/juliangruber/read-file-action/blob/master/index.js
+
+                # let { promises: fs } = require('fs');
+                # body = await fs.readFile('tests/general_task_body.md', 'utf8');
+                # core.setOutput("TASK", 'general');
 
                 # console.log(`${{ github.event.issue.labels }}`)
                 # let labels = github.event.issue.labels.map(item => item.name);
