@@ -83,6 +83,8 @@ jobs:
             if (${{ github.event_name == 'issues' }}) {
                 console.log("Retrieven issue body from UERS");
                 body = `${{ github.event.issue.body }}`;
+
+                console.log(`${{ github.event.issue.labels }}`)
             } else {
                 console.log("Retrieven issue body from MOCK");
                 // https://github.com/juliangruber/read-file-action/blob/master/index.js
