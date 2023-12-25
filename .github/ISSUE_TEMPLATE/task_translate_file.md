@@ -9,6 +9,44 @@ assignees: ''
 <!-- Please fill the below task information as follows -->
 <!-- Do not remove any text of this Description template, just fill items -->
 
+### Let's translate files
+
+- It is a translate file task which can translate the text or files to another language you'd like ...
+- The translated files will be posted to the comment under this issue ticket.
+- See more about [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
+- ***Fill the prompt /content between the line marks "---" below each "###” sections***
+- Prompt:
+	- Fill a translation prompt you like.
+	- Example:
+		> - Please help translate the text to English/(Simplified Chinese/Traditional Chinese/Japanese/中文/英文/繁體中文/日文, and etc.)
+		> - Please translate the text to Chinese/English more elegent/beautiful/authentic, and etc,.
+- Content:
+    - **Attach a file as extra content**
+	- Paste, drop or click the button at the bottom of the Description to upload file or paste the available download link between the separate lines "---"
+	- **File name and link should better be composed of numbers or English characters**
+	- **If you want to translate pure text, please use [Task - Ask](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=) and paste your text**:
+	- Support text formats: *.txt, *.md （more formats support are working in progress）
+	- Example:
+		> - [the_moon_and_sixpence_chapter_1.txt](https://raw.githubusercontent.com/xwnb/GitAutoTranslator/main/samples/the_moon_and_sixpence_chapter_1.txt)
+		> - https://raw.githubusercontent.com/xwnb/GitAutoTranslator/main/samples/hello_world.txt
+
+### Prompt
+
+-------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------
+
+### Content
+
+-------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------
+
+
 <!--
 ### Setting
 
@@ -35,42 +73,3 @@ Here is the generation configuration and safety setting about Gemini, you can mo
 	}
 -------------------------------------------------------------------------------
 -->
-
-### Let's translate files
-
-- It is a translate file task which can translate the text or files to another language you'd like ...
-- If you want to translate pure text, you can use the ask task simply
-- The translated files will be posted to the comment under this issue ticket.
-- See more about [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
-- ***Fill the prompt /content between the line marks "---" below each "###” sections***
-
-### Prompt
-
-- Fill a translation prompt you like.
-- Example:
-
-> - Please help translate the text to English/(Simplified Chinese/Traditional Chinese/Japanese/中文/英文/繁體中文/日文, and etc.)
-**(If you want to translate pure, please use ask request for easy use.)**:
-> - Please translate the text to Chinese/English more elegent/beautiful/authentic, and etc,.
--------------------------------------------------------------------------------
-
-
-
--------------------------------------------------------------------------------
-
-### Content
-
-- Upload one file to translate.
-- Paste, drop or click the button at the bottom of the Description to add file or paste the available download link between the separate lines "---"
-- **File name and link should better be composed of numbers or English characters**
-- Support text formats: *.txt, *.md （more formats support are working in progress）
-- Example:
-
-> - [the_moon_and_sixpence_chapter_1.txt](https://raw.githubusercontent.com/xwnb/GitAutoTranslator/main/samples/the_moon_and_sixpence_chapter_1.txt)
-> - https://raw.githubusercontent.com/xwnb/GitAutoTranslator/main/samples/hello_world.txt
-
--------------------------------------------------------------------------------
-
-
-
--------------------------------------------------------------------------------

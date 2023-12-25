@@ -1,28 +1,34 @@
 ---
-name: Task - Read images
-about: Create a read images request task
+name: Task - Ask with file
+about: Create an ask request task with a file
 title: ''
-labels: ['read', 'image', 'task']
+labels: ['ask', 'text', 'task']
 assignees: ''
 
 ---
 <!-- Please fill the below task information as follows -->
 <!-- Do not remove any text of this Description template, just fill items -->
 
-### Let's read images
 
-- It is a read images task which can read images and response according to the prompt and images ...
+### Ask anything you want
+
+- It is a general ask task which can read the file as part of content, you can ask for any questions/requests/help ...
 - The response will be posted to the comment under this issue ticket.
 - See more about [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
 - ***Fill the prompt /content between the line marks "---" below each "###" sections***
 - Prompt:
- 	- Examples:
-		- What's in the picture?
-		- Write a short, engaging blog post based on this picture. It should include a description of the meal in the photo and talk about my journey meal prepping.
+	- Fill the prompt between the separate lines "---" in the below **### Prompt** section
+    - Examples:
+		- Please summary the text: ..balabala.. .
+		- Please polish the text: ..balabala.. .
+		- Please translate the text: ..balabala.. .
+		- Tell a story about ...balabala... to me.
 		- ...
 - Content:
-    - Attach an image or multiples images list
-    - Paste, drop or click to add images between line marks "---"
+    - **Attach a file as extra content**
+    - Paste, drop or click the button at the bottom of the Description to upload file or paste the available download link between the separate lines "---"
+    - **File name and link should better be composed of numbers or English characters**
+	- **If you want to ask with pure text, please use [Task - Ask](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=) and paste your text**:
 
 ### Prompt
 
@@ -48,7 +54,7 @@ Here is the generation configuration and safety setting about Gemini, you can mo
 
 -------------------------------------------------------------------------------
 	{
-	  "model_name": "gemini-pro-vision",
+	  "model_name": "gemini-pro",
 	  "generation_configuration":
 	  {
 	    "temperature": 0.9,
