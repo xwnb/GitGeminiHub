@@ -164,6 +164,23 @@ For users:
 
 **The result will be post at the issue page by bot comment. If task failed, please check the issue description, edit or reopen or re-create can re-trigger the translation task automatically.**
 
+
+### Examples
+
+Here are some examples you may be interested in. If you have awesome tasks/examples by this project, please submit a [pull request](https://github.com/xwnb/GitGeminiHub/compare) or @xwnb. I'll list them below.
+
+1. [Example: Add contextual information ](https://github.com/xwnb/GitGeminiHub/issues/3)
+2. [Example: Summarize this text](https://github.com/xwnb/GitGeminiHub/issues/4)
+3. [Example: Translate the attached to Chinese](https://github.com/xwnb/GitGeminiHub/issues/5)
+4. [Example: Parse the formula](https://github.com/xwnb/GitGeminiHub/issues/6)
+5. [Example: Describe what's in each image in detail and summary the common between these?](https://github.com/xwnb/GitGeminiHub/issues/8)
+6. [Example: Parse the table in this image into markdown format](https://github.com/xwnb/GitGeminiHub/issues/9)
+7. [Example: Create an outline for an essay about hummingbirds](https://github.com/xwnb/GitGeminiHub/issues/11)
+8. [Example: OCR (English)](https://github.com/xwnb/GitGeminiHub/issues/13)
+9. [Example: OCR (Chinese)](https://github.com/xwnb/GitGeminiHub/issues/14)
+
+
+
 <!-- _For more examples, please refer to the [Documentation](https://github.com/xwnb/GitGeminiHub/blob/main/README.md)_ -->
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
