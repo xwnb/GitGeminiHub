@@ -88,6 +88,7 @@ jobs:
                 console.log("Retrieven issue body from MOCK")
                 // https://github.com/juliangruber/read-file-action/blob/master/index.js
 
+                let { promises: fs } = require('fs');
                 body = await fs.readFile('tests/general_task_body.md', 'utf8');
                 core.setOutput("TASK", 'general');
 
@@ -96,7 +97,6 @@ jobs:
                 # let str_labels = labels.join(', ');
                 # console.log(`The labels of the task: ${ str_labels }`)
 
-                # let { promises: fs } = require('fs');
                 # if (labels.includes('ask')) {
                 #   body = await fs.readFile('tests/ask_task_body.md', 'utf8');
                 #   core.setOutput("TASK", 'ask');
