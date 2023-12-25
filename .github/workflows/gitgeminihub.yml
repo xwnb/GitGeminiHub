@@ -59,7 +59,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Check out (pull request/push test only)
-        if: ${{ github.event_name != 'issues' }}
         uses: actions/checkout@v3
 
       # - name: Mock issue body (pull request/push test only)
@@ -85,7 +84,7 @@ jobs:
             if (${{ github.event_name == 'issues' }}) {
                 console.log("Retrieven issue body from UERS")
                 body = `${{ github.event.issue.body }}`;
-            } else if () {
+            } else {
                 console.log("Retrieven issue body from MOCK")
                 // https://github.com/juliangruber/read-file-action/blob/master/index.js
 
@@ -102,6 +101,9 @@ jobs:
                 } else if (labels.includes('translate')) {
                   body = await fs.readFile('tests/translate_task_body.md', 'utf8');
                   core.setOutput("TASK", 'translate');
+                } else {
+                  body = await fs.readFile('tests/general_task_body.md', 'utf8');
+                  core.setOutput("TASK", 'general');
                 }
             }
 
@@ -110,7 +112,7 @@ jobs:
 
       - name: Extract setting info
         id: extract_setting_info_step
-        if: ${{ github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'task') }}
+        # if: ${{ github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'task') }}
         uses: actions/github-script@v7.0.1
         with:
           script: |
@@ -225,7 +227,6 @@ jobs:
 
       - name: Extract prompt info
         id: extract_prompt_info_step
-        if: ${{ github.event_name != 'issues' }}
         uses: actions/github-script@v7.0.1
         with:
           script: |
@@ -326,9 +327,10 @@ jobs:
             core.setOutput("PROMPT", text_body);
 
             console.log("The prompt: " + text_body);
+
       - name: Extract content info
         id: extract_content_info_step
-        if: ${{ github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'text') || contains(github.event.issue.labels.*.name, 'image') }}
+        if: ${{ steps.retrieve_issue_body_step.outputs.TASK == 'general' || contains(github.event.issue.labels.*.name, 'text') || contains(github.event.issue.labels.*.name, 'image') }}
         uses: actions/github-script@v7.0.1
         with:
           script: |
