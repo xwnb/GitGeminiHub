@@ -20,9 +20,10 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   extract_info_job:
-    if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' ||
-            (github.event_name == 'issues' && github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'task'))
-        }}
+    if:
+      ${{ github.event_name == 'pull_request' || github.event_name == 'push' ||
+      (github.event_name == 'issues' && github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'task'))
+      }}
     runs-on: ubuntu-latest
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -47,9 +48,9 @@ jobs:
     steps:
       - name: Say Hello World
         run: |
-            echo "Hi, GitGeminiHub"
-            echo "Here is [github] context:"
-            echo "$GITHUB_CONTEXT"
+          echo "Hi, GitGeminiHub"
+          echo "Here is [github] context:"
+          echo "$GITHUB_CONTEXT"
 
       - name: Check out (pull request/push test only)
         uses: actions/checkout@v3
@@ -426,7 +427,6 @@ jobs:
 
             console.log("The content: " + text_body);
 
-
   execute_request_job:
     needs: [extract_info_job]
     if: ${{ github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'task') }}
@@ -455,10 +455,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-
       - name: Check out
         uses: actions/checkout@v3
-
 
       - name: Setup workspace
         run: |
@@ -466,7 +464,6 @@ jobs:
           pip install google-generativeai==0.3.1
           pip install wget
           pip install Pillow
-
 
       # - name: Execute request
       #   id: execute_request_step
@@ -480,7 +477,6 @@ jobs:
         run: |
           python3 "ask.py" $MODEL_NAME ${{ secrets.GOOGLE_GEMINI_API_KEY }} "$TASK" "$PROMPT" -c "$CONTENT" -o $RESPONSE_FILE -t $TEMPERATURE -p $TOP_P -k $TOP_K -m $MAX_OUTPUT_TOKENS -hs $HARASSMENT -ht $HATE_SPEECH -sx $SEXUALLY_EXPLICIT -dg $DANGEROUS_CONTENT
 
-
       # - name: Upload artifact
       #   if: ${{ env.TASK == 'translate' }}
       #   uses: actions/upload-artifact@v4
@@ -490,7 +486,6 @@ jobs:
       #     path: cabin/Translated - *.*
       #     if-no-files-found: error
       #     retention-days: 7
-
 
       - name: Post response to comment if succeed
         if: ${{ success() }}
@@ -506,7 +501,7 @@ jobs:
 
             let lines = prompt_raw.trim().split('\n');
             for (let i = 0; i < lines.length; i++) {
-              prompt_quota += "    " + lines[i].trim() + "\n";
+              prompt_quota += lines[i].trim() + "\n";
             }
 
             let content_raw = `${ CONTENT }`;
@@ -514,16 +509,16 @@ jobs:
 
             lines = content_raw.trim().split('\n');
             for (let i = 0; i < lines.length; i++) {
-              content_quota += "    " + lines[i].trim() + "\n";
+              content_quota += lines[i].trim() + "\n";
             }
 
             let completedComment
-              = "    Prompt:\n"
+              = "### Prompt:\n"
               + `${ prompt_quota }\n`;
 
             if (content_quota.trim().length != 0) {
               completedComment = completedComment
-                + "    Content:\n"
+                + "### Content:\n"
                 + `${ content_quota }\n`
             }
 
@@ -563,7 +558,6 @@ jobs:
 
             console.log(`${ completedComment }`)
 
-
       - name: Post sorry to comment if failed
         if: ${{ failure() }}
         uses: actions/github-script@v7.0.1
@@ -596,7 +590,7 @@ jobs:
 
             let lines = prompt_raw.trim().split('\n');
             for (let i = 0; i < lines.length; i++) {
-              prompt_quota += "    " + lines[i].trim() + "\n";
+              prompt_quota += lines[i].trim() + "\n";
             }
 
             let content_raw = `${ CONTENT }`;
@@ -604,16 +598,16 @@ jobs:
 
             lines = content_raw.trim().split('\n');
             for (let i = 0; i < lines.length; i++) {
-              content_quota += "    " + lines[i].trim() + "\n";
+              content_quota += lines[i].trim() + "\n";
             }
 
             let completedComment
-              = "    Prompt:\n"
+              = "### Prompt:\n"
               + `${ prompt_quota }\n`;
 
             if (content_quota.trim().length != 0) {
               completedComment = completedComment
-                + "    Content:\n"
+                + "### Content:\n"
                 + `${ content_quota }\n`
             }
 
