@@ -1,4 +1,5 @@
 import re
+import sys
 
 response_path: str = "cabin/response.txt"
 
@@ -13,4 +14,5 @@ def extract_urls(text):
 
 
 if __name__ == '__main__':
-    pass
+    urls = extract_urls(sys.argv[1])
+    print(urls)

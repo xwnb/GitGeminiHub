@@ -26,12 +26,12 @@ assignees: ''
 
 -------------------------------------------------------------------------------
 
-### Intruction
+### Introduction
 
 - It is a general ask task which can read the file as part of content, you can ask for any questions/requests/help ...
 - The response will be posted to the comment under this issue ticket.
-- See more about [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
-- ***Fill the prompt /content between the line marks "---" below each "###" sections***
+- See more prompt introductions [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values), [Multimodal prompts](https://ai.google.dev/docs/multimodal_concepts) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
+- ***Fill the prompt /content between the line marks "---" in each "###" sections***
 - Prompt:
   - Fill the prompt between the separate lines "---" in the below **### Prompt** section
   - Examples:

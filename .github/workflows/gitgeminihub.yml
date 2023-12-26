@@ -86,7 +86,11 @@ jobs:
                 let labels = result_labels.data.map((label) => label.name)
                 core.setOutput("LABELS", labels);
 
-                if (labels.includes('ask')) {
+                if (labels.includes('text')) {
+                  core.setOutput("TASK", 'text');
+                } else if (labels.includes('image')) {
+                  core.setOutput("TASK", 'image');
+                } else if (labels.includes('ask')) {
                   core.setOutput("TASK", 'ask');
                 } else {
                   throw new Error("Incorrect task");

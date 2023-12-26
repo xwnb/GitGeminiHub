@@ -8,8 +8,8 @@ class Logger:
     def log_raw(self, msg: str):
         if self.file:
             self.file.write(msg)
-        else:
-            print(msg)
+        
+        print(msg)
 
         return msg
 

@@ -6,8 +6,7 @@ labels: ['ask', 'image', 'task']
 assignees: ''
 
 ---
-<!-- Please fill the below task information as follows -->
-<!-- Do not remove any text of this Description template, just fill items -->
+<!-- Please just fill the below task information as follows and DO NOT remove any text of this Description template -->
 
 ### Let's read images
 
@@ -27,12 +26,12 @@ assignees: ''
 
 -------------------------------------------------------------------------------
 
-### Intruction
+### Introduction
 
 - It is a read images task which can read images and response according to the prompt and images ...
 - The response will be posted to the comment under this issue ticket.
-- See more about [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
-- ***Fill the prompt /content between the line marks "---" below each "###" sections***
+- See more prompt introductions [Prompt strategies](https://ai.google.dev/docs/prompt_best_practices#experiment-with-different-parameter-values), [Multimodal prompts](https://ai.google.dev/docs/multimodal_concepts) and [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
+- ***Fill the prompt /content between the line marks "---" in each "###" sections***
 - Prompt:
   - Examples:
     - What's in the picture?

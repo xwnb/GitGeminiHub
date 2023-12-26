@@ -169,19 +169,28 @@ For users:
 
 #### **Supported task templates**
 
-- [**Task - Read images**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=read%2Cimage%2Ctask&projects=&template=task_read_images.md&title=): it can read images and do something as your description - image apprehension, text extraction and others.
-- [**Task - Ask**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=): ask Gemini for anything you want, like google or bing anything - writing, ask question, translate or solve math problems.
-- [**Task - Translate file**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=translate%2Ctask%2Ctext&projects=&template=task_translate_file.md&title=): It can translate a file if you attach, and post the translated one to you.
+- [**Task - Ask**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=): **Recommand** ask Gemini for anything you want, like google or bing anything - writing, ask question, translate or solve math problems.
+- [**Task - Ask with images**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=read%2Cimage%2Ctask&projects=&template=task_read_images.md&title=): it can read images and do something as your description - image apprehension, text extraction and others.
+  - Examples:
+    - What's in the picture?
+    - Write a short, engaging blog post based on this picture. It should include a description of the meal in the photo and talk about my journey meal prepping.
+    - Please recognize the text in the picture and convert to markdown
+    - Describe what's in each image in detail and summary the common between these
+- [**Task - Ask with file**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctext%2Ctask&projects=&template=task_ask_with_file.md&title=): It can read a file if you attach, and post the result one to you based on your prompt.
+  - Examples:
+    - Please summary the text: ..balabala.. .
+    - Please polish the text: ..balabala.. .
+    - Please translate the text: ..balabala.. .
 - More task templatesa are in support ... If you have more expected features, please choose **Feature requst** ticket to ask for new features.
 
 ### Examples
 
 Here are some examples you may be interested in. If you have awesome tasks/examples by this project, please submit a [pull request](https://github.com/xwnb/GitGeminiHub/pulls) or @xwnb. I'll list them below.
 
-1. [Example: Add contextual information ](https://github.com/xwnb/GitGeminiHub/issues/3)
-2. [Example: Summarize this text](https://github.com/xwnb/GitGeminiHub/issues/4)
+1. [Example: Add contextual information ](https://github.com/xwnb/GitGeminiHub/issues/18)
+2. [Example: Summarize this text](https://github.com/xwnb/GitGeminiHub/issues/19)
 3. [Example: Translate the attached to Chinese](https://github.com/xwnb/GitGeminiHub/issues/5)
-4. [Example: Parse the formula](https://github.com/xwnb/GitGeminiHub/issues/6)
+4. [Example: Parse the formula](https://github.com/xwnb/GitGeminiHub/issues/20)
 5. [Example: Describe what's in each image in detail and summary the common between these?](https://github.com/xwnb/GitGeminiHub/issues/8)
 6. [Example: Parse the table in this image into markdown format](https://github.com/xwnb/GitGeminiHub/issues/9)
 7. [Example: Create an outline for an essay about hummingbirds](https://github.com/xwnb/GitGeminiHub/issues/11)

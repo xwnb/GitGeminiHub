@@ -179,9 +179,18 @@ the Gemini era
 
 #### **支持的模板**
 
-- [**Task - Read images**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=read%2Cimage%2Ctask&projects=&template=task_read_images.md&title=): 这可以根据你的描述读取分析图片，比如文字提取，识图读图，看图写作等
-- [**Task - Ask**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=): 你可以通过此来提交任何问题，像提问搜索引擎一样从 Gemini 处获取答案，比如提问，写作，做题，撰写材料等
-- [**Task - Translate file**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=translate%2Ctask%2Ctext&projects=&template=task_translate_file.md&title=): 这可以翻译你所提交文本文档
+- [**Task - Ask**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=): **推荐** 你可以通过此来提交任何问题，像提问搜索引擎一样从 Gemini 处获取答案，比如提问，写作，做题，撰写材料等.
+- [**Task - Ask with images**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=read%2Cimage%2Ctask&projects=&template=task_read_images.md&title=): 这可以根据你的描述读取分析图片，比如文字提取，识图读图，看图写作等
+  - 例子:
+    - 图片里是什么东西?
+    - 根据这张图片写一篇简短的、引人入胜的博客文章。它应该包括对照片中的食物的描述，并谈谈我的旅行膳食准备.
+    - 请识别图片中的文字，并转换为 markdown 格式
+    - 详细描述每个图像中的内容，并总结它们之间的共同点
+- [**Task - Ask with file**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctext%2Ctask&projects=&template=task_ask_with_file.md&title=): 它可以根据你所附加的文件，读取内容，并根据所给提示回复
+  - 例子:
+    - 帮我总结这篇文章
+    - 帮我修改润色这篇文档
+    - 请翻译一下文档
 - 更多的任务模板正在支持中…… 如果你有其他需求，请通过 **Feature request** 来 [提交新需求](https://github.com/xwnb/GitGeminiHub/issues/new/choose)
 
 
