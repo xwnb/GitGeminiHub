@@ -96,6 +96,7 @@
 This is GitGeminiHub built by [GitHub Action](https://github.com/features/actions) and [Google Gemini](https://deepmind.google/technologies/gemini/#introduction) API to response automatically by submitting Issues.
 
 ***It is a learning, open-source project. If any complains, please contact me.***
+***If you are interested in this project，it would be honored to receive yours Star and Fork***
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
@@ -163,9 +164,70 @@ For users:
 4. Fill the content (upload/drop files or images or their links if needed) in **### Content** section
 5. Submit the new issue
 6. Wait the task finished.
-7. Check the new comment added by action bot
+7. Check the new comment added by action bot. **If task failed, please check the issue description, edit or reopen or re-create can re-trigger the translation task automatically.**
 
-**The result will be post at the issue page by bot comment. If task failed, please check the issue description, edit or reopen or re-create can re-trigger the translation task automatically.**
+#### template explanation
+
+When you try to submit the ticket, you will see the pate like below:
+
+1. Please just fill the below task information as follows and DO NOT remove any text > of this Description template
+2. Fill your prompt in the ***### Prompt*** section between line marks `---`
+3. Fill additional image or text files in the ***### Content*** section between line marks `---`
+4. If the task fails, please check the [Safety settings](https://ai.google.dev/docs/safety_setting_gemini) and adjust the settings in the json data in ***### Setting*** section
+
+> <!-- Please just fill the below task information as follows and DO NOT remove any text > of this Description template -->
+>
+> ### Let's read images
+>
+> See **Introduction** for details.
+>
+> ### Prompt
+>
+> -------------------------------------------------------------------------------
+>
+> Please recognize the text in the picture and convert to markdown
+>
+> -------------------------------------------------------------------------------
+>
+> ### Content
+>
+> -------------------------------------------------------------------------------
+>
+> ![image](https://github.com/xwnb/GitGeminiHub/assets/45145954/> 1f2f1cdb-c30d-4a3e-b01c-0e80e30f51d2)
+>
+> -------------------------------------------------------------------------------
+>
+> ### Introduction
+>
+> balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala
+>
+> ### Setting
+>
+> Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs. [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
+>
+> -------------------------------------------------------------------------------
+> ```json
+> 	{
+> 	  "model_name": "gemini-pro-vision",
+> 	  "generation_configuration":
+> 	  {
+> 	    "temperature": 0.9,
+> 	    "top_p": 1.0,
+> 	    "top_k": 1,
+> 	    "max_output_tokens": 2048
+> 	  },
+> 	  "safety_setting":
+> 	  {
+> 	    "harassment": "BLOCK_MEDIUM_AND_ABOVE",
+> 	    "hate_speech": "BLOCK_MEDIUM_AND_ABOVE",
+> 	    "sexually_explicit": "BLOCK_MEDIUM_AND_ABOVE",
+> 	    "dangerous_content": "BLOCK_MEDIUM_AND_ABOVE"
+> 	  }
+> 	}
+> ```
+> -------------------------------------------------------------------------------
+>
+
 
 #### **Supported task templates**
 
@@ -187,15 +249,15 @@ For users:
 
 Here are some examples you may be interested in. If you have awesome tasks/examples by this project, please submit a [pull request](https://github.com/xwnb/GitGeminiHub/pulls) or @xwnb. I'll list them below.
 
-1. [Example: Add contextual information ](https://github.com/xwnb/GitGeminiHub/issues/18)
+1. [Example: Add contextual information](https://github.com/xwnb/GitGeminiHub/issues/18)
 2. [Example: Summarize this text](https://github.com/xwnb/GitGeminiHub/issues/19)
-3. [Example: Translate the attached to Chinese](https://github.com/xwnb/GitGeminiHub/issues/5)
+3. [Example: Translate the attached to Chinese](https://github.com/xwnb/GitGeminiHub/issues/25)
 4. [Example: Parse the formula](https://github.com/xwnb/GitGeminiHub/issues/20)
-5. [Example: Describe what's in each image in detail and summary the common between these?](https://github.com/xwnb/GitGeminiHub/issues/8)
-6. [Example: Parse the table in this image into markdown format](https://github.com/xwnb/GitGeminiHub/issues/9)
+5. [Example: Describe what's in each image in detail and summary the common between these?](https://github.com/xwnb/GitGeminiHub/issues/24)
+6. [Example: Parse the table in this image into markdown format](https://github.com/xwnb/GitGeminiHub/issues/26)
 7. [Example: Create an outline for an essay about hummingbirds](https://github.com/xwnb/GitGeminiHub/issues/11)
-8. [Example: OCR (English)](https://github.com/xwnb/GitGeminiHub/issues/13)
-9. [Example: OCR (Chinese)](https://github.com/xwnb/GitGeminiHub/issues/14)
+8. [Example: Recognize the text in the picture and convert to markdown](https://github.com/xwnb/GitGeminiHub/issues/22)
+9. [Example: Please recognize the text in the picture and translate to Chinese](https://github.com/xwnb/GitGeminiHub/issues/23)
 
 
 

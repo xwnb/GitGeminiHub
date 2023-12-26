@@ -10,6 +10,8 @@ assignees: ''
 
 ### Let's read images
 
+See **Introduction** for details.
+
 ### Prompt
 
 -------------------------------------------------------------------------------
@@ -44,8 +46,7 @@ assignees: ''
 <!--
 ### Setting
 
-Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs.
-- [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
+Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs. [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
 
 -------------------------------------------------------------------------------
 	{

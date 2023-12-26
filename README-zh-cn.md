@@ -97,12 +97,13 @@
 这是由 [GitHub Action](https://github.com/features/actions) 和 [Google Gemini](https://deepmind.google/technologies/gemini/#introduction) API 构建的 GitGeminiHub，可以自动回复所提交的问题请求。
 
 ***这是一个用于学习的开源项目，如果有任何的担忧，请联系我。***
+***如果你对该仓库感兴趣，欢迎并感谢 Star 和 Fork***
 
 PS1: 鉴于国内无法访问 Google，OpenAI 等众多的 AI 站点；想用 AI 的内心是躁动的；付费会员我是抠门和无法访问的；科学爬梯子我是没有胆子的；给梯子贩子交钱又怕奸商跑路的；白嫖是永远刻在谷子里的。然后发现该全球最大的同性交友网站可以免费使用（白嫖）Action 来进行自动化构建发布。然后就想着，对哦，它们可以直连 xxxx 站点，然后就搞了这么一个仓库。通过 GitHub Action 来访问 Gemini API，从而不用科学上网就能满足一些 AI 的任务需求。
 
 PS2: GitHub 由于各地访问情况不一样，但普遍访问较慢或者不稳定，图片或者链接无法完整打开。移动端可以通过 GitHub Mobile，访问非常流畅；电脑端可以下载 [FastGithub](https://github.com/WangGithubUser/FastGithub/releases)。
 
-PS3: 该仓库不具备任何科学上网技巧，请在遵守当地法律法规下使用体验。
+PS3: 请在遵守当地法律法规下使用体验。
 
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
@@ -177,6 +178,68 @@ the Gemini era
 6. 等待任务结束
 7. 机器人将会把结果通过评论的方式回复到该问题页之下。 ***如果任务失败，请检查问题描述，编辑或重新提交或重新创建可以自动重新触发任务请求。***
 
+#### 模板说明
+
+当您尝试提交票据时，您将看到如下所示的页面:
+
+1. 请按如下方式填写以下任务信息，不要删除此描述模板的任何文本。
+2. 在***### Prompt***部分的行分割符 `---` 之间填写您的提示。
+3. 在***### Content***部分的行分割符 `---` 之间上传或者粘贴图像或文本文件链接。
+4. 如果任务失败，请检查 [安全设置](https://ai.google.dev/docs/safety_setting_gemini)，可以调整在***### Setting*** 中的 json 数据关于设置的参数。
+
+> <!-- Please just fill the below task information as follows and DO NOT remove any text > of this Description template -->
+>
+> ### Let's read images
+>
+> See **Introduction** for details.
+>
+> ### Prompt
+>
+> -------------------------------------------------------------------------------
+>
+> Please recognize the text in the picture and convert to markdown
+>
+> -------------------------------------------------------------------------------
+>
+> ### Content
+>
+> -------------------------------------------------------------------------------
+>
+> ![image](https://github.com/xwnb/GitGeminiHub/assets/45145954/> 1f2f1cdb-c30d-4a3e-b01c-0e80e30f51d2)
+>
+> -------------------------------------------------------------------------------
+>
+> ### Introduction
+>
+> balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala
+>
+> ### Setting
+>
+> Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs. [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
+>
+> -------------------------------------------------------------------------------
+> ```json
+> 	{
+> 	  "model_name": "gemini-pro-vision",
+> 	  "generation_configuration":
+> 	  {
+> 	    "temperature": 0.9,
+> 	    "top_p": 1.0,
+> 	    "top_k": 1,
+> 	    "max_output_tokens": 2048
+> 	  },
+> 	  "safety_setting":
+> 	  {
+> 	    "harassment": "BLOCK_MEDIUM_AND_ABOVE",
+> 	    "hate_speech": "BLOCK_MEDIUM_AND_ABOVE",
+> 	    "sexually_explicit": "BLOCK_MEDIUM_AND_ABOVE",
+> 	    "dangerous_content": "BLOCK_MEDIUM_AND_ABOVE"
+> 	  }
+> 	}
+> ```
+> -------------------------------------------------------------------------------
+>
+
 #### **支持的模板**
 
 - [**Task - Ask**](https://github.com/xwnb/GitGeminiHub/issues/new?assignees=&labels=ask%2Ctask&projects=&template=task_simple_ask.md&title=): **推荐** 你可以通过此来提交任何问题，像提问搜索引擎一样从 Gemini 处获取答案，比如提问，写作，做题，撰写材料等.
@@ -198,15 +261,15 @@ the Gemini era
 
 这里是一些你可能感兴趣的示例，如果你有更精彩的任务或者例子，请提交 [pull request](https://github.com/xwnb/GitGeminiHub/pulls) 或者艾特我 @xwnb。我将把它们添加到下面列表中。
 
-1. [Example: Add contextual information ](https://github.com/xwnb/GitGeminiHub/issues/3)
-2. [Example: Summarize this text](https://github.com/xwnb/GitGeminiHub/issues/4)
-3. [Example: Translate the attached to Chinese](https://github.com/xwnb/GitGeminiHub/issues/5)
-4. [Example: Parse the formula](https://github.com/xwnb/GitGeminiHub/issues/6)
-5. [Example: Describe what's in each image in detail and summary the common between these?](https://github.com/xwnb/GitGeminiHub/issues/8)
-6. [Example: Parse the table in this image into markdown format](https://github.com/xwnb/GitGeminiHub/issues/9)
+1. [Example: Add contextual information](https://github.com/xwnb/GitGeminiHub/issues/18)
+2. [Example: Summarize this text](https://github.com/xwnb/GitGeminiHub/issues/19)
+3. [Example: Translate the attached to Chinese](https://github.com/xwnb/GitGeminiHub/issues/25)
+4. [Example: Parse the formula](https://github.com/xwnb/GitGeminiHub/issues/20)
+5. [Example: Describe what's in each image in detail and summary the common between these?](https://github.com/xwnb/GitGeminiHub/issues/24)
+6. [Example: Parse the table in this image into markdown format](https://github.com/xwnb/GitGeminiHub/issues/26)
 7. [Example: Create an outline for an essay about hummingbirds](https://github.com/xwnb/GitGeminiHub/issues/11)
-8. [Example: OCR (English)](https://github.com/xwnb/GitGeminiHub/issues/13)
-9. [Example: OCR (Chinese)](https://github.com/xwnb/GitGeminiHub/issues/14)
+8. [Example: Recognize the text in the picture and convert to markdown](https://github.com/xwnb/GitGeminiHub/issues/22)
+9. [Example: Please recognize the text in the picture and translate to Chinese](https://github.com/xwnb/GitGeminiHub/issues/23)
 
 
 

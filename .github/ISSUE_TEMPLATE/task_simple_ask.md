@@ -36,8 +36,7 @@ See **Introduction** for details.
 <!--
 ### Setting
 
-Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs.
-- [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
+Here is the generation configuration and safety setting about Gemini, you can modify them according to your needs. [Safety settings](https://ai.google.dev/docs/safety_setting_gemini)
 
 -------------------------------------------------------------------------------
 	{
