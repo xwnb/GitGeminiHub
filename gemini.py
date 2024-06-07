@@ -42,7 +42,7 @@ class GitGeminiHub:
     @staticmethod
     def parse_inputs():
         parser = argparse.ArgumentParser(prog='GitGeminiHub')
-        parser.add_argument('model_name', default='gemini-pro', help="Specificy model name, which could be gemini-pro or gemini-pro-version")
+        parser.add_argument('model_name', default='gemini-1.5-pro-latest', help="Specificy model name")
         parser.add_argument('api_key', help="The api key of Gemini")
         parser.add_argument('task', help="The task type of request")
         parser.add_argument('prompt', help="The prompt")

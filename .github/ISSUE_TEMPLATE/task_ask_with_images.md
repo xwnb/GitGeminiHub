@@ -1,6 +1,6 @@
 ---
 name: Task - Ask with images
-about: Create a ask images request task
+about: Create an ask images request task
 title: ''
 labels: ['ask', 'image', 'task']
 assignees: ''

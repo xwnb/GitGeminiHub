@@ -40,7 +40,7 @@ Here is the generation configuration and safety setting about Gemini, you can mo
 
 -------------------------------------------------------------------------------
 	{
-	  "model_name": "gemini-pro",
+	  "model_name": "gemini-1.5-pro-latest",
 	  "generation_configuration":
 	  {
 	    "temperature": 0.9,
