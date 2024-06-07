@@ -270,7 +270,7 @@ the Gemini era
 7. [Example: Create an outline for an essay about hummingbirds](https://github.com/xwnb/GitGeminiHub/issues/11)
 8. [Example: Recognize the text in the picture and convert to markdown](https://github.com/xwnb/GitGeminiHub/issues/22)
 9. [Example: Please recognize the text in the picture and translate to Chinese](https://github.com/xwnb/GitGeminiHub/issues/23)
-
+10. [Example: Translate pdf to Chinese](https://github.com/xwnb/GitGeminiHub/issues/30) [**NEW** 2024/6/8]
 
 
 <!-- _For more examples, please refer to the [Documentation](https://github.com/xwnb/GitGeminiHub/blob/main/README.md)_ -->
@@ -288,7 +288,7 @@ the Gemini era
 - [x] Post response by Issue comment.
 - [x] Add configuration section for Gemini setting in Issue template
 - [ ] Support other plain text formats
-- [ ] Support `*.pdf`
+- [x] Support `*.pdf` phrase [**NEW** 2024/6/8]
 - [ ] Support OCR for images, scanned-documents
 - [ ] Notify task result to users by email
 - [ ] ...

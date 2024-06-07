@@ -91,6 +91,8 @@ jobs:
                   core.setOutput("TASK", 'text');
                 } else if (labels.includes('image')) {
                   core.setOutput("TASK", 'image');
+                } else if (labels.includes('pdf')) {
+                  core.setOutput("TASK", 'pdf');
                 } else if (labels.includes('ask')) {
                   core.setOutput("TASK", 'ask');
                 } else {
@@ -325,7 +327,7 @@ jobs:
 
       - name: Extract content info
         id: extract_content_info_step
-        if: ${{ steps.retrieve_issue_body_step.outputs.TASK == 'general' || contains(github.event.issue.labels.*.name, 'text') || contains(github.event.issue.labels.*.name, 'image') }}
+        if: ${{ steps.retrieve_issue_body_step.outputs.TASK == 'general' || contains(github.event.issue.labels.*.name, 'text') || contains(github.event.issue.labels.*.name, 'image') || contains(github.event.issue.labels.*.name, 'pdf') }}
         uses: actions/github-script@v7.0.1
         with:
           script: |
@@ -461,9 +463,7 @@ jobs:
       - name: Setup workspace
         run: |
           echo "Setup current workspace under: $(pwd)"
-          pip install google-generativeai==0.3.1
-          pip install wget
-          pip install Pillow
+          pip3 install -r requirements.txt
 
       # - name: Execute request
       #   id: execute_request_step

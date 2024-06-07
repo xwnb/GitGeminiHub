@@ -7,6 +7,8 @@ import requests
 import io
 import os
 import wget
+import fitz
+import time
 
 
 class Asker:
@@ -16,7 +18,7 @@ class Asker:
 
 
   def ask(self):
-    self.hub = gemini.GitGeminiHub()
+    # self.hub = gemini.GitGeminiHub()
     args = self.hub.parse_inputs()
     # print(args)
     self.hub.init(args)
@@ -73,6 +75,45 @@ class Asker:
           input.append(img_data)
 
         self.hub.generate(input, fout)
+      elif self.hub.task == 'pdf':
+        input = self.hub.prompt
+        urls = util.extract_urls(self.hub.content)
+
+        if len(urls) > 0:
+          base_name = os.path.basename(urls[0])
+          input_file_path = os.path.join("cabin/", base_name)
+          wget.download(urls[0], input_file_path)
+
+          max_pages = 5
+          max_batch_pages = 1
+          with fitz.open(input_file_path) as fin:
+            if len(fin) > max_pages:
+              ret = logger.log_warning(f"Please limit pdf pages within {max_pages}.\n\n")
+              # raise Exception(ret)
+
+            # total_tokens_count = 0
+            page_count = 0
+            for page_num in range(len(fin)):
+              if page_count == 0:
+                input = [self.hub.prompt]
+
+              page = fin.load_page(page_num)
+              pix = page.get_pixmap()
+              image_data = pix.tobytes()
+              image = PIL.Image.open(io.BytesIO(image_data))
+              input.append(image)
+              page_count += 1
+
+              if page_count < max_batch_pages:
+                  continue
+              elif page_num > max_pages:
+                  break
+
+              page_count = 0
+              logger.log_msg(f"\n\n#Page: {page_num}\n\n")
+
+              self.hub.generate(input, fout)
+              time.sleep(1)
       else:
         self.hub.generate(self.hub.prompt, fout)
 

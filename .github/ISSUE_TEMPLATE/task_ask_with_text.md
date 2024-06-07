@@ -1,6 +1,6 @@
 ---
-name: Task - Ask with file
-about: Create an ask request task with a file
+name: Task - Ask with text file
+about: Create an ask request task with a text file
 title: ''
 labels: ['ask', 'text', 'task']
 assignees: ''
@@ -8,7 +8,7 @@ assignees: ''
 ---
 <!-- Please just fill the below task information as follows and DO NOT remove any text of this Description template -->
 
-### Ask anything you want
+### Let's read text file
 
 See **Introduction** for details.
 
